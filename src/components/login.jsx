@@ -1,3 +1,4 @@
+
 import React, { useRef, useState } from "react"
 import "../css/login.css"
 import axios from "axios"
@@ -6,6 +7,7 @@ import { GoogleLogin } from "@react-oauth/google"
 import { ToastContainer, toast } from "react-toastify"
 import ClipLoader from "react-spinners/ClipLoader"
 import { useCookies } from "react-cookie"
+import { jwtDecode } from "jwt-decode"
 
 export default function Login() {
   const notifyGreen = (val) => toast.success(`${val}`)
@@ -21,6 +23,57 @@ export default function Login() {
   const [loading, setLoading] = useState(false)
   const [show, setShow] = useState(false)
 
+  const handleSuccess = async (res) => {
+    const token = res.credential
+
+    const decoded = jwtDecode(token)
+    const email = decoded.email
+
+    try {
+      setLoading(true)
+      const response = await axios.post(
+        "https://budget-tracker-server-1.onrender.com/googleLogin",
+        // "http://localhost:8875/googleLogin",
+        {
+          email,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      const { userId, name } = response.data
+      if (userId) {
+        setCookies("userId", userId, {
+          path: "/",
+          maxAge: 600,
+          sameSite: "strict",
+        })
+      }
+      if (name) {
+        setCookies("userName", name, {
+          path: "/",
+          maxAge: 600,
+          sameSite: "strict",
+        })
+      }
+      notifyGreen(response.data.message)
+      navigate("/dashboard")
+    } catch (error) {
+      if (error.response) {
+        notifyRed(error.response.data.message)
+        setTimeout(() => {
+          navigate("/signup")
+        }, 3000)
+      } else {
+        notifyRed("Something went wrong...")
+      }
+    } finally {
+      setLoading(false)
+    }
+  }
+
   const submitBtnClicked = async (eve) => {
     eve.preventDefault()
     setTimeout(() => {
@@ -34,8 +87,8 @@ export default function Login() {
     try {
       setLoading(true)
       const response = await axios.post(
-         "https://budget-tracker-server-1.onrender.com/login",
-        //"http://localhost:8765/login",
+        "https://budget-tracker-server-1.onrender.com/login",
+        // "http://localhost:8875/login",
         {
           email,
           password: password,
@@ -66,15 +119,7 @@ export default function Login() {
       navigate("/dashboard")
     } catch (error) {
       if (error.response) {
-        const errorDetails = error.response.data.message
-
-        if (errorDetails === "Email incorrect") {
-          notifyRed("Email is incorrect")
-        } else if (errorDetails === "Password incorrect") {
-          notifyRed("Password is incorrect")
-        } else {
-          notifyRed("Login failed")
-        }
+        notifyRed(error.response.data.message)
       } else {
         notifyRed("Something went wrong...")
       }
@@ -146,9 +191,7 @@ export default function Login() {
             <div className="google">
               <GoogleLogin
                 //edit later onsuccess
-                onSuccess={() => {
-                  alert("In process")
-                }}
+                onSuccess={handleSuccess}
                 onError={() => {
                   alert("Login Failed")
                 }}
@@ -160,6 +203,7 @@ export default function Login() {
                 SignUp
               </Link>
             </div>
+            
           </form>
         </div>
       </main>

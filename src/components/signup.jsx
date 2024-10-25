@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react"
 import "../css/signup.css"
 import { Link, useNavigate } from "react-router-dom"
@@ -88,8 +90,8 @@ export default function SignUp() {
             name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
           const lowerEmail = email.toLowerCase()
           const response = await axios.post(
-             "https://budget-tracker-server-1.onrender.com/signup",
-            //"http://localhost:8765/signup",
+            "https://budget-tracker-server-1.onrender.com/signup",
+            // "http://localhost:8875/signup",
             {
               name: nameUpperCaseFirstLetter,
               email: lowerEmail,
@@ -107,11 +109,50 @@ export default function SignUp() {
             navigate("/")
           }, 2000)
         } catch (error) {
-          console.error("Error", error)
-          notifyRed("Error signing up, please try again.")
+          if (error.response) {
+            notifyRed(error.response.data.message)
+          }
+          else{
+            notifyRed("Something went wrong")
+          }
         } finally {
           setLoading(false)
         }
+      }
+    }
+  }
+
+  const handleOnSuccess = async (res)=>{
+    const token = res.credential
+    const decodedData = jwtDecode(token)
+    const email = decodedData.email
+    const name = decodedData.given_name
+
+    try {
+      const response = await axios.post(
+        "https://budget-tracker-server-1.onrender.com/googleSignup",
+        // "http://localhost:8875/googleSignup",
+        {
+          name,
+          email,
+          token
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      notifyGreen(response.data.message || "User registered successfully!")
+      setTimeout(() => {
+        navigate("/")
+      }, 2000)
+    } catch(error) {
+      if (error.response) {
+        notifyRed(error.response.data.message)
+      }
+      else{
+        notifyRed("Something went wrong")
       }
     }
   }
@@ -202,10 +243,7 @@ export default function SignUp() {
           </div>
           <div className="google">
             <GoogleLogin
-              onSuccess={(credentialResponse) => {
-                const decoded = jwtDecode(credentialResponse.credential)
-                console.log(decoded)
-              }}
+              onSuccess={handleOnSuccess}
               onError={() => {
                 alert("Login Failed")
               }}
