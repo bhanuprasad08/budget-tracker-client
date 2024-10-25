@@ -60,8 +60,8 @@ function Expenses() {
     try {
       setDeleted(true)
       await axios.delete(
-        // `https://budget-tracker-server-1.onrender.com/users/${cookies.userId}/data/${dataId}`
-        `http://localhost:8765/users/${cookies.userId}/data/${dataId}`
+         `https://budget-tracker-server-1.onrender.com/users/${cookies.userId}/data/${dataId}`
+        //`http://localhost:8765/users/${cookies.userId}/data/${dataId}`
       )
       notifyTrue("Category deleted successfully")
       setDeleted(false)
