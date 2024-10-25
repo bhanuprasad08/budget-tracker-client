@@ -47,7 +47,7 @@ const AppStore = (props) => {
         const categoryLowerCase = category.toLowerCase()
         try {
           await axios.post(
-            // `https://budgetplanner-backend-1.onrender.com/users/${cookies.userId}/data`,
+            // `https://budget-tracker-server-1.onrender.com/users/${cookies.userId}/data`,
             `http://localhost:8765/users/${cookies.userId}/data`,
             {
               category: categoryLowerCase,
@@ -64,7 +64,7 @@ const AppStore = (props) => {
 
         try {
           const response = await axios.get(
-            // `https://budgetplanner-backend-1.onrender.com/users/${cookies.userId}`,
+            // `https://budget-tracker-server-1.onrender.com/users/${cookies.userId}`,
             `http://localhost:8765/users/${cookies.userId}`,
             { method: "GET", headers: { "Content-Type": "application/json" } }
           )
@@ -96,7 +96,7 @@ const AppStore = (props) => {
       setBudgetChanged(true)
       try {
         const response = await axios.post(
-          // `https://budgetplanner-backend-1.onrender.com/users/${cookies.userId}/budget`,
+          // `https://budget-tracker-server-1.onrender.com/users/${cookies.userId}/budget`,
           `http://localhost:8765/users/${cookies.userId}/budget`,
           {
             budget: changebudget,
@@ -168,7 +168,7 @@ const AppStore = (props) => {
     const fetchExpenses = async () => {
       try {
         const response = await axios.get(
-          // `https://budgetplanner-backend-1.onrender.com/users/${cookies.userId}/`,
+          // `https://budget-tracker-server-1.onrender.com/users/${cookies.userId}/`,
           `http://localhost:8765/users/${cookies.userId}/`,
           { headers: { "Content-Type": "application/json" } }
         )
@@ -181,7 +181,7 @@ const AppStore = (props) => {
     const fetchBudget = async () => {
       try {
         const response = await axios.get(
-          // `https://budgetplanner-backend-1.onrender.com/users/${cookies.userId}/budget`,
+          // `https://budget-tracker-server-1.onrender.com/users/${cookies.userId}/budget`,
           `http://localhost:8765/users/${cookies.userId}/budget`,
           { headers: { "Content-Type": "application/json" } }
         )

@@ -88,7 +88,7 @@ export default function SignUp() {
             name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
           const lowerEmail = email.toLowerCase()
           const response = await axios.post(
-            // "https://budgetplanner-backend-1.onrender.com/signup",
+            // "https://budget-tracker-server-1.onrender.com/signup",
             "http://localhost:8765/signup",
             {
               name: nameUpperCaseFirstLetter,
