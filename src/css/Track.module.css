@@ -1,0 +1,87 @@
+.filterOptions {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.filterBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.filter {
+  width: 100%;
+  cursor: default;
+  background-color: rgba(49, 49, 49, 0.729);
+  color: white;
+  border-radius: 20px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sortByPrice,.sortByCreatedOrUpdated {
+  height: 100%;
+  width: 100%;
+}
+.sortByCreatedOrUpdated p,
+.sortByPrice p,
+.sortByDate p {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.sortBylth,
+.sortByhtl {
+  margin: 5px 0 5px 20px;
+  height: 30px;
+  width: 115px;
+  background-color: #fff;
+  border-radius: 40px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.sortByDateInput {
+  max-width: 250px;
+  width: 85%;
+  margin-left: 20px;
+  padding-right: 15px;
+}
+.clearBtnBox{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.clearBtn{
+  height: 35px;
+  width: 120px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 40px;
+  background-color: #fff;
+}
+.middleRightTopTrack{
+  height: 60px;
+}
+.budgetBoxTrack{
+  cursor: default;
+  font-weight: 500;
+  height: 100%;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  border: 1px solid black;
+  border-radius: 20px;
+  transition: all 0.3s;
+  background-color: rgb(212 212 212);
+}
+@media screen and (max-width: 500px){
+  .filterBox{
+    margin: 0 15px;
+  }
+}

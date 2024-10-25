@@ -1,0 +1,74 @@
+.mainDashboard {
+  height: 100%;
+  width: 100%;
+}
+
+.totalData {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.greetings {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  margin-top: 35px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: default;
+}
+.greetings::selection,
+.quotes::selection {
+  background-color: rgba(0, 0, 0, 0.773);
+  color: #d898d7;
+}
+.quotes {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  cursor: default;
+}
+.barChart {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+  flex-wrap: wrap;
+}
+
+.bar1,
+.bar2 {
+  height: 350px;
+  width: 90%;
+  max-width: 700px;
+  margin: 15px 30px;
+}
+
+@media screen and (max-width: 680px) {
+  .greetings {
+    z-index: 0;
+  }
+}
+@media screen and (max-width: 400px) {
+  .greetings {
+    font-size: 1.4rem;
+  }
+  .quotes {
+    font-size: 1rem;
+    margin-left: 20px;
+  }
+}

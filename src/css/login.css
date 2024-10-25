@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgb(216 152 215);
+  position: relative;
+}
+
+.loginbox {
+  height: 420px;
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 15px 15px 10px rgb(66, 66, 66);
+  font-family: "Poppins", sans-serif;
+}
+
+.form {
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background-image: linear-gradient(
+    108.7deg,
+    rgba(221, 22, 224, 1) 11%,
+    rgba(111, 22, 190, 1) 88.2%
+  );
+}
+
+.form a {
+  background: none;
+}
+
+.loginName {
+  font-size: 32px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #f2f2f2;
+  background: none;
+  cursor: default;
+}
+
+#email,
+.e_mail,
+#password,
+.pass {
+  height: 40px;
+  width: 350px;
+  border-radius: 50px;
+  padding: 0 0 0 15px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.e_mail:focus,
+.pass:focus,
+.btn:focus,
+.googleSignin:focus {
+  outline: 3px solid black;
+}
+
+.btn {
+  height: 35px;
+  width: 100px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.forgotPass {
+  margin: 0 0 0 85px;
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+  background: none;
+}
+
+.or {
+  cursor: default;
+  background: none;
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.or h4 {
+  background: none;
+}
+
+.hr {
+  margin: 0 7px;
+  width: 35%;
+}
+
+.google {
+  height: auto;
+  width: 100%;
+  display: flex;
+  background: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.googleSignin {
+  transition: all 0.5s;
+  height: 35px;
+  max-width: 360px;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: white;
+}
+
+.signUp {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  cursor: default;
+}
+
+.signUp h5 {
+  background: none;
+  background: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.signUp a {
+  background: none;
+  text-decoration: none;
+}
+
+.signUp span {
+  cursor: pointer;
+  color: black;
+  font-weight: 600;
+  margin: 0 0 0 5px;
+  font-family: "Poppins", sans-serif;
+  background: none;
+}
+
+.newFeature{
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30px;
+}
+
+.newFeature a{
+  color: inherit;
+}
+
+@media only screen and (max-width: 680px) {
+  .googleSignin {
+    max-width: 250px;
+    width: 100%;
+  }
+  #email,
+  .e_mail,
+  #password,
+  .pass {
+    width: 230px;
+    font-size: 0.75rem;
+  }
+}

@@ -1,0 +1,260 @@
+ .main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chartAndBar {
+  margin-top: 50px;
+  height: 100%;
+  width: 50%;
+}
+.chartAndBar .bar1,
+.chartAndBar .bar2 {
+  width: 40%;
+}
+.paper {
+  height: 90%;
+  width: 80%;
+  background-color: white;
+  border-radius: 15px;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.details {
+  height: 10%;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.742);
+  border-radius: 15px;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.left {
+  height: 40px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: 0px 0 0 40px;
+  border-radius: 15px;
+  background-color: rgb(235 235 235 / 74%);
+}
+.right {
+  height: 40px;
+  width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin: 0px 10px 0 0;
+  border-radius: 15px;
+  background-color: rgb(235 235 235 / 74%);
+}
+.spentsBudget {
+  height: 80%;
+  width: 90%;
+  border-radius: 15px;
+  background-color: rgb(235 235 235 / 74%);
+  overflow-y: scroll;
+}
+.top,
+.bottom {
+  height: 50px;
+  width: 98%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  background: transparent;
+}
+.top .date {
+  padding-left: 40px;
+}
+.bottom {
+  height: auto;
+  width: 100%;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.bottom li {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: transparent;
+  gap: 1rem;
+}
+.date,
+.category,
+.spents {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.date,
+.category,
+.spents,
+.totalSpents div {
+  background: transparent;
+}
+.printAndTotal {
+  height: auto;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  margin-top: 14px;
+}
+.printButton,
+.button {
+  background: transparent;
+}
+.button {
+  height: 35px;
+  width: 70px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 20px;
+  font-family: "Poppins", sans-serif;
+}
+.totalSpents {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: transparent;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 740px) {
+  .main {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .chartAndBar {
+    margin-top: 100px;
+    display: flex;
+    width: 100%;
+  }
+  .paper {
+    gap: 1rem;
+  }
+  .left {
+    width: 150px;
+    font-size: 0.8rem;
+  }
+  .right {
+    width: 200px;
+    font-size: 0.8rem;
+  }
+  .top,
+  .bottom,
+  .totalSpents {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 530px) {
+  .details {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 10px;
+  }
+  .left {
+    height: 100px;
+    width: 200px;
+    font-size: 1.2rem;
+  }
+  .left,
+  .right {
+    margin: 0;
+  }
+  .top,
+  .totalSpents {
+    font-size: 0.85rem;
+  }
+  .bottom {
+    font-size: 0.75rem;
+  }
+}
+
+ 
+@media print {
+  /* Main container */
+  .main {
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+    
+    overflow: hidden;
+  }
+  
+  /* Chart container adjustments */
+  .chartAndBar {
+    gap: 6rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  /* Reduce chart size */
+  .chartAndBar .bar1,
+  .chartAndBar .bar2 {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Remove the Print button */
+  .button {
+    display: none;
+  }
+
+  /* Paper adjustments to fit in single page */
+  .paper {
+    width: 100%;
+    margin-top: 10rem;
+    height: auto;
+    padding: 10px;
+    border: none;
+    overflow: hidden;
+    background-color: white;
+  }
+
+  /* Smaller font and tighter layout for table */
+  .details,
+  .spentsBudget,
+  .totalSpents {
+    font-size: 0.9rem;
+  }
+
+  /* Reduce spacing between items */
+  .spentsBudget .top,
+  .spentsBudget .bottom li,
+  .printAndTotal {
+    padding: 4px 0;
+  }
+}

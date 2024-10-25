@@ -1,0 +1,9 @@
+.Toastify,
+.Toastify__toast-container,
+.Toastify__toast,
+.Toastify__toast-body,
+.Toastify__toast-icon svg,
+.Toastify__toast-body div,
+.Toastify__close-button svg {
+  background: none;
+}

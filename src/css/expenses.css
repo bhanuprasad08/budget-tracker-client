@@ -1,0 +1,788 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  background: rgb(216 152 215);
+  font-family: "Poppins", sans-serif;
+}
+
+.mainExpense {
+  height: auto;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(216 152 215);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 10px;
+}
+.myExpenses::selection,
+span::selection,
+.expensedate .date::selection,
+.expensedate .createdorupdated::selection,
+.navData li div::selection,
+.navData-active li div::selection,
+.emptyExpenses::selection {
+  background-color: rgba(0, 0, 0, 0.773);
+  color: #d898d7;
+}
+.showBudget::selection {
+  background-color: rgba(0, 0, 0, 0.773);
+  color: #d4d4d4;
+}
+.showRemaining::selection {
+  background-color: rgba(0, 0, 0, 0.773);
+  color: #b7e7b7;
+}
+.showSpents::selection {
+  background-color: rgba(0, 0, 0, 0.773);
+  color: #ed5e5e;
+}
+.addExpenseBtn::selection,
+input::selection {
+  background-color: rgba(0, 0, 0, 0.773);
+  color: white;
+}
+.nav {
+  height: 75px;
+  width: 2840px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.expenseTracker {
+  height: auto;
+  width: 50%;
+}
+
+.expenseTracker img {
+  cursor: pointer;
+    aspect-ratio: 3 / 3;
+    width: 90px;
+    margin: 50px 0 0 40px;
+}
+
+.navitems,
+.navitems-active {
+  height: auto;
+  width: 50%;
+}
+
+.navData,
+.navData-active {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 15px 0 0 0;
+}
+
+.navData li,
+.navData-active li {
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.navData li div,
+.navData-active li div {
+  color: black;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  position: relative;
+}
+.navData li div:after,
+.navData-active li div:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: black;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+.navData li div:hover:after,
+.navData-active li div:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+.menuClose {
+  font-size: 24px;
+  right: 0;
+  position: relative;
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  top: 17px;
+}
+
+.menu,
+.menu-active {
+  right: 20px;
+  position: absolute;
+  display: none;
+}
+
+.close,
+.close-active {
+  right: 20px;
+  position: absolute;
+  display: none;
+}
+
+.middle {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 50px 0 0 0;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s;
+}
+
+.middleLeft {
+  height: 100%;
+  width: 40%;
+  margin-left: 10px;
+  transition: all 0.3s;
+}
+
+.addData {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.expenseCategory,
+.expenseAmount,
+.expenseAdd {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expenseDate {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+.createdOrUpdated {
+  height: 100%;
+  width: 10%;
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+.date {
+  height: auto;
+  width: 100%;
+  font-size: 1rem;
+}
+.expenseData .emptyExpenses {
+  height: 50vh;
+  width: 90%;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.emptyExpenses {
+  margin-left: 17px;
+}
+input {
+  height: 45px;
+  max-width: 550px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 20px 10px 10px 20px;
+  margin: 5px 0px;
+  padding: 0 0 0 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: #fff;
+  transition: all 0.3s;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.addExpenseBtn {
+  height: 45px;
+  max-width: 250px;
+  width: 100%;
+  border-radius: 20px;
+  margin: 5px 0px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid black;
+  background-color: white;
+  transition: all 0.3s;
+}
+
+.vline {
+  margin: 0 10px;
+  height: 600px;
+  border-left: 2px solid black;
+}
+
+.vlineAfter {
+  display: none;
+}
+
+.middleRight {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+}
+
+.middleRightTop {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  transition: all 0.3s;
+}
+
+.middleRightTop > .budgetBox {
+  background-color: rgb(212 212 212);
+}
+.middleRightTop > .remainingBox {
+  background-color: #b7e7b7;
+}
+.middleRightTop > .spentsBox {
+  background-color: #ed5e5e;
+}
+
+.budgetBox,
+.remainingBox,
+.spentsBox {
+  cursor: default;
+  font-weight: 500;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  border: 1px solid black;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.budgetBox {
+  justify-content: space-evenly;
+}
+
+.showBudget {
+  background-color: rgb(212 212 212);
+}
+.showRemaining {
+  background-color: #b7e7b7;
+}
+
+.showSpents {
+  background-color: #ed5e5e;
+}
+
+.changeBudget {
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  background-color: #fff;
+  transition: all 0.3s;
+}
+
+ion-icon {
+  background-color: #fff;
+}
+.middleRightBottom {
+  height: 100%;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.myExpenses {
+  height: 100%;
+  width: auto;
+  font-weight: 500;
+  font-size: 1.7rem;
+  margin: 15px 0 0 15px;
+  cursor: default;
+}
+
+.hr {
+  width: 98%;
+  border: 1px solid black;
+}
+
+.expenseData,
+.expenseHeading {
+  height: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.expenseHeading li {
+  height: 100%;
+  width: 95%;
+  font-size: 1.2rem;
+  margin: 10px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  cursor: default;
+}
+
+.expenseData li {
+  height: 100%;
+  width: 95%;
+  font-size: 1.1rem;
+  margin: 10px 0 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px 5px;
+}
+
+.expenseData span,
+.expenseHeading span {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* loading */
+
+.expenseDataLoading {
+  height: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.dataLoadingLi {
+  height: 35px;
+  width: 100%;
+  margin: 10px 0 0 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px 5px;
+  gap: 2rem;
+}
+.dataLoading {
+  height: 100%;
+  width: 85%;
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  animation: skeletonloading 2.2s infinite;
+}
+@keyframes skeletonloading {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #c0c0c0;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}
+
+.expenseHeading .expenseAction {
+  cursor: default;
+}
+
+.expenseAction {
+  width: auto;
+  cursor: default;
+}
+
+.expenseData .expenseAction .fa-solid {
+  font-size: 20px;
+  transition: all 0.1s;
+}
+
+.expenseData .expenseAction .fa-solid:hover {
+  font-size: 24px;
+}
+
+.expenseName,
+.expenseCost {
+  cursor: default;
+}
+
+.modalOverAll,
+.modalTotalAmountSpent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0 0 0;
+  cursor: default;
+}
+.modalUl {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modalLi {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.modalUlData {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  position: relative;
+}
+.modalLiData {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.modalCloseButtonBox {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modalCloseButton {
+  font-size: 1rem;
+  font-weight: 600;
+  height: 35px;
+  width: 100px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1050px) {
+  .createdOrUpdated {
+    width: 25%;
+  }
+  .expenseTracker {
+    height: auto;
+    width: 0;
+    z-index: 1;
+  }
+  .navitems {
+    position: relative;
+    top: -15px;
+    height: 100%;
+    width: 100%;
+    transition: display 0.5s;
+    z-index: 1;
+  }
+  .navitems-active {
+    position: relative;
+    top: -15px;
+    height: 100%;
+    width: 100%;
+    transition: display 0.5s;
+    z-index: -1;
+  }
+  .navData {
+    display: flex;
+    flex-direction: column;
+    height: 325px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    top: 0px;
+    transition: all 0.5s;
+    opacity: 1;
+    border-radius: 0 0 25px 25px;
+    border: 2px solid black;
+  }
+
+  .navData-active {
+    display: flex;
+    flex-direction: column;
+    height: 0px;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+    top: 0px;
+    transition: all 0.5s;
+    opacity: 1;
+  }
+
+  ul li {
+    display: block;
+  }
+  .menu {
+    display: block;
+    background: none;
+    z-index: 1;
+  }
+  .menu-active {
+    display: none;
+    background: none;
+    z-index: 1;
+  }
+  .close {
+    display: block;
+    z-index: 1;
+  }
+  .close-active {
+    display: none;
+  }
+  .middleLeft {
+    width: 35%;
+  }
+
+  input {
+    max-width: 230px;
+    width: 100%;
+    border-radius: 20px;
+    font-size: 0.9rem;
+  }
+
+  .addExpenseBtn {
+    max-width: 100px;
+    width: 100%;
+    font-size: 0.77rem;
+  }
+  .vline {
+    margin: 0 6px;
+  }
+  .middleRightTop {
+    height: 175px;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .budgetBox,
+  .remainingBox,
+  .spentsBox {
+    cursor: default;
+    width: 95%;
+    font-size: 0.9rem;
+  }
+
+  .budgetBox {
+    position: relative;
+  }
+  .changeBudget {
+    position: absolute;
+    right: 5px;
+    height: 25px;
+    width: 25px;
+    font-size: 20px;
+  }
+
+  .changeBudget ion-icon {
+    font-size: 20px;
+    border-radius: 20px;
+  }
+
+  .myExpenses {
+    font-size: 1.65rem;
+  }
+
+  .vlineAfter {
+    display: none;
+  }
+
+  .hr {
+    width: 80%;
+  }
+  .expenseHeading li {
+    font-size: 1.125rem;
+  }
+
+  .expenseData li {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-right: 5px;
+  }
+  .expenseData .expenseAction .fa-solid {
+    font-size: 16px;
+  }
+
+  .expenseData .expenseAction:hover .fa-solid {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .middle {
+    flex-direction: column;
+  }
+  .middleRightTop {
+    margin: 15px 0 0 0;
+  }
+  .middleLeft {
+    width: 100%;
+    margin: 0;
+  }
+  input {
+    max-width: 400px;
+    width: 90%;
+    font-size: 0.9rem;
+  }
+  .addExpenseBtn {
+    max-width: 140px;
+    font-size: 0.77rem;
+  }
+  .vline {
+    display: none;
+  }
+  .vlineAfter {
+    margin: 5px 0 5px 10px;
+    display: block;
+    width: 95%;
+    border: 1px solid black;
+  }
+  .myExpenses {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  .hr {
+    width: 96%;
+  }
+
+  .expenseHeading {
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .expenseData {
+    width: 100%;
+  }
+
+  .expenseHeading li {
+    font-size: 1rem;
+    font-weight: 600;
+    max-width: 95%;
+    width: 100%;
+  }
+  .expenseData li {
+    font-size: 0.825rem;
+    font-weight: 500;
+    padding: 5px 10px 5px;
+    width: 93%;
+  }
+  .expenseData .expenseAction .fa-solid {
+    cursor: default;
+    font-size: 14px;
+  }
+
+  .expenseData .expenseAction:hover .fa-solid {
+    font-size: 16px;
+  }
+
+  .expenseHeading .expenseName,
+  .expenseHeading .expenseCost,
+  .expenseHeading .expenseAction {
+    margin-right: 20px;
+  }
+  .expenseData .expenseCost,
+  .expenseData .expenseAction {
+    margin-left: 27px;
+  }
+  .date {
+    font-size: 0.8rem;
+  }
+  .modalOverAll,
+  .modalTotalAmountSpent,
+  .modalUl,
+  .modalLi,
+  .modalUlData,
+  .modalCloseButton {
+    font-size: 0.75rem;
+  }.modalCloseButton{
+    height: 28px;
+    width: 75px;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .expenseHeading li {
+    font-size: 0.8rem;
+  }
+  .expenseData li {
+    font-size: 0.775rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
